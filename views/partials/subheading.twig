@@ -1,0 +1,27 @@
+{#
+	/**
+	 * /views/partials/subheading
+	 *
+	 * @param class arr
+	 * @param link  str
+	 * @param title str
+	 * @author 		Jérémy Levron <jeremylevron@19h47.fr>
+	 */
+#}
+<div class="row">
+	<div class="col-xs-12 col-md-8 col-md-offset-1">
+
+		{% spaceless %}
+
+		<h2 class="h3{{ ' ' ~ class | join( ' ' ) }}">
+			{% if link %}<a href="{{ link }}">{% endif %}
+
+			{{ title }}
+
+			{% if link %}</a>{% endif %}
+		</h2>
+
+		{% endspaceless %}
+
+	</div>
+</div>

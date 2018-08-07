@@ -1,0 +1,117 @@
+{#
+	/**
+	 * /views/pages/front-page
+	 *
+	 * @package 	WordPress
+	 * @subpackage 	formeact
+	 * @author 		Jérémy Levron <jeremylevron@19h47.fr>
+	 */
+#}
+{% extends 'index.twig' %}
+
+{% block content %}
+
+	<div class="row">
+		<div class="col-xs-12 col-md-9 col-md-offset-1">
+
+			{# Title #}
+			<h1 class="color-white margin-xs-bottom-48">
+				<a href="{{ site.title }}">
+					{{- site.title -}}<br>&ndash;
+				</a>
+			</h1>
+
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12 col-md-9 col-md-offset-1">
+			<p class="margin-xs-0">{{ fields.introduction_title }}</p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12 col-md-4 col-md-offset-1">
+
+			{# Text #}
+			<p>{{- fields.introduction_text -}}</p>
+			<strong class="font-family-title">&ndash;</strong>
+
+
+			<p class="Link text-align-xs-right margin-xs-0">
+
+				<a href="{{ get_permalink( fields.introduction_link[0] ) }}">
+					{{- get_the_title( fields.introduction_link[0] ) -}}
+				</a>
+			</p>
+
+			{# Image #}
+			{% if fields.introduction_image %}
+				<img 
+					src="{{ TimberImage( fields.introduction_image ).src }}"
+					width="{{ TimberImage( fields.introduction_image ).width }}"
+					height="{{ TimberImage( fields.introduction_image ).height }}"
+				>
+			{% endif %}
+
+
+			{# Second section #}
+			{# Text #}
+			<p class="margin-xs-top-48 margin-xs-bottom-0">{{- fields.section_second_text -}}</p>
+			<strong class="font-family-title">&ndash;</strong>
+
+			{# Image #}
+			{% if fields.section_second_image %}
+				<img 
+					src="{{ TimberImage( fields.section_second_image ).src }}"
+					width="{{ TimberImage( fields.section_second_image ).width }}"
+					height="{{ TimberImage( fields.section_second_image ).height }}"
+				>
+			{% endif %}
+
+
+			{# Link #}
+			{% if fields.section_second_link %}
+
+			<p class="Link text-align-xs-right margin-xs-0">
+				<a href="{{ get_permalink( fields.section_second_link[0] ) }}">
+					{{- fields.section_second_label ? fields.section_second_label : get_the_title( fields.section_second_link[0] ) -}}
+				</a>
+			</p>
+
+			{% endif %}
+
+		</div>
+
+		{# First section #}
+		<div class="col-xs-12 col-md-4 col-md-offset-1">
+
+
+			{# Text #}
+			<p>{{- fields.section_first_text -}}</p>
+			<strong class="font-family-title">&ndash;</strong>
+
+			{# Image #}
+			{% if fields.section_first_image %}
+				<img 
+					src="{{ TimberImage( fields.section_first_image ).src }}"
+					width="{{ TimberImage( fields.section_first_image ).width }}"
+					height="{{ TimberImage( fields.section_first_image ).height }}"
+				>
+			{% endif %}
+
+
+			{# Link #}
+			{% if fields.section_first_link %}
+
+			<p class="Link text-align-xs-right margin-xs-0">
+				<a href="{{ get_permalink( fields.section_first_link[0] ) }}">
+					{{- fields.section_first_label ? fields.section_first_label : get_the_title( fields.section_first_link[0] ) -}}
+				</a>
+			</p>
+
+			{% endif %}
+
+		</div>
+	</div>
+{% endblock %}

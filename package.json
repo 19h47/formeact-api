@@ -1,0 +1,53 @@
+{
+  "name": "formeact",
+  "version": "1.0.0",
+  "description": "Forméact ",
+  "main": "index.js",
+  "author": "Jérémy Levron <jeremylevron@19h47.fr> (http://19h47.fr)",
+  "scripts": {
+    "prod": "./bin/prod",
+    "dev": "./bin/dev"
+  },
+  "keywords": [
+    "Webpack",
+    "SCSS",
+    "Timber",
+    "WordPress"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/19h47/formeact.git"
+  },
+  "author": "Jérémy Levron <jeremylevron@19h47.fr>",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^0.28.11",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint": "^4.19.1",
+    "eslint-loader": "^2.1.0",
+    "eslint-plugin-import": "^2.13.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^1.1.11",
+    "node-sass": "^4.9.2",
+    "postcss-loader": "^2.1.6",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "svgo": "^1.0.5",
+    "svgo-loader": "^2.1.0",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^2.1.5",
+    "webpack-manifest-plugin": "^2.0.3"
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "breakpoint-sass": "^2.7.1",
+    "breakpoint-slicer": "^2.0.0",
+    "dom-classes": "^1.0.0",
+    "dom-select": "^1.1.1",
+    "ress": "^1.2.2"
+  }
+}

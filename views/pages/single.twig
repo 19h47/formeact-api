@@ -1,0 +1,50 @@
+{#
+	/**
+	 * /views/pages/single
+	 *
+	 * @package 	WordPress
+	 * @subpackage 	formeact
+	 * @author 		Jérémy Levron <jeremylevron@19h47.fr>
+	 */
+#}
+{% extends 'index.twig' %}
+
+{% block content %}
+
+	<div class="row">
+		<div class="col-xs-12 col-md-8 col-md-offset-1">
+			<h1 class="h2"><a href="{{ site.url }}">{{ site.title }}<br>&ndash;</a></h1>
+		</div>
+	</div>
+
+	{%
+		include 'partials/subheading.twig' with {
+			title: post.title,
+			link: post.link,
+			class: [ 'margin-xs-0' ]
+		}
+	%}
+
+	<div class="row margin-xs-top-24">
+		<div class="col-xs-12 col-md-3 col-md-offset-1">
+			<p class="Single__date">{{ post.date }}</p>
+			<strong class="font-family-title">&ndash;</strong>
+		</div>
+		<div class="col-xs-12 col-md-5 col-md-offset-1">
+			<div class="Single__content">
+				{{- post.content -}}
+			</div>
+			<strong class="font-family-title">&ndash;</strong>
+		</div>
+	</div>
+
+	<div class="row margin-xs-top-72">
+		<div class="col-xs-12 col-md-5 col-md-offset-7">
+			{{ shares }}
+		</div>
+	</div>
+
+
+	{{ recent_posts }}
+
+{% endblock %}

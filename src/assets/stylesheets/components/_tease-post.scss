@@ -1,0 +1,24 @@
+/**
+ * Tease post
+ *
+ * @uses .Tease-post
+ */
+.Tease-post {
+
+	/**
+	 * Date
+	 *
+	 * @uses .Tease-post__date
+	 */
+	&__date {
+		@extend %font-family-title;
+
+		font: {
+			size: 12px;
+		}
+	}
+
+
+	&__title {}
+	&__preview {}
+}

@@ -1,0 +1,35 @@
+{#
+	/**
+	 * views/components/menu
+	 *
+	 * @author  Jérémy Levron <jeremylevron@19h47.fr>
+	 */
+#}
+
+<nav class="Menu">
+
+
+	<ul class="Menu__items">
+		{% spaceless %}
+
+		{% for item in menu.main.items %}
+
+		<li
+			id="menu-item-{{ item.id }}"
+			class="Menu__item{{ item.classes ? ' ' ~ item.class }}{{ item.current ? ' Menu__item--is-current' }}{{ item.children ? ' Menu__item--has-children' }}"
+		>
+			<a href="{{ item.url }}"{{ item.target ? ' target="_blank"' }}>
+				{{- item.title -}}
+			</a>
+		</li>
+
+		{% endfor %}
+
+		{% endspaceless %}
+	</ul>
+
+
+</nav>
+
+
+

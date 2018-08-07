@@ -1,0 +1,36 @@
+{#
+	/**
+	 * /views/pages/programme
+	 *
+	 * @package 	WordPress
+	 * @subpackage 	formeact
+	 * @author 		Jérémy Levron <jeremylevron@19h47.fr>
+	 */
+#}
+{% extends 'index.twig' %}
+
+{% block page %}
+
+	{{ parent() }}
+
+	{%
+		include 'partials/subheading.twig' with {
+			title: 'Découvrir',
+			class: [ 'margin-xs-top-96', 'margin-xs-bottom-0' ]
+		}
+	%}
+
+	<div class="row margin-xs-top-24">
+
+	{% for tweet in tweets %}
+
+		<div class="col-xs-12 col-md-4 col-md-offset-1">
+			{% include 'components/tweet.twig' %}
+		</div>
+		{{ loop.index is divisible by( 2 ) and not loop.last ? '</div><div class="row">' }}
+
+	{% endfor %}
+
+	</div>
+
+{% endblock %}

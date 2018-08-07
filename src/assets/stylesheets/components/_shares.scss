@@ -1,0 +1,32 @@
+/**
+ * Shares
+ *
+ * @uses .Shares
+ */
+.Shares {
+	@extend %font-family-title;
+
+	list-style-type: none;
+	font: {
+		size: 12px;
+	}
+
+	li {
+		@extend %display-xs-inline-block;
+	}
+
+	/**
+	 * Title
+	 *
+	 * @uses .Shares__title
+	 */
+	&__title {}
+
+
+	/**
+	 * Items
+	 *
+	 * @uses .Shares__items
+	 */
+	&__items {}
+}

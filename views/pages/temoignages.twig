@@ -1,0 +1,24 @@
+{#
+	/**
+	 * /views/pages/temoignages
+	 *
+	 * @package 	WordPress
+	 * @subpackage 	formeact
+	 * @author 		Jérémy Levron <jeremylevron@19h47.fr>
+	 */
+#}
+{% extends 'index.twig' %}
+
+{% block page %}
+
+	{{ parent() }}
+
+	<div class="row">
+		<div class="col-xs-12 col-md-9 col-md-offset-1">
+			{% for testimony in testimonies %}
+				{% include 'components/tease-post.twig' with { post: testimony }%}
+			{% endfor %}
+		</div>
+	</div>
+
+{% endblock %}

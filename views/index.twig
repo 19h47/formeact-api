@@ -1,0 +1,77 @@
+{#
+	/**
+	 * /views/index
+	 *
+	 * @author  Jérémy Levron <jeremylevron@19h47.fr>
+	 */
+#}
+
+{# Header #}
+{% include 'header.twig' %}
+
+
+{# Content #}
+{% block content %}
+
+	<div class="row">
+		<div class="col-xs-12 col-md-8 col-md-offset-1">
+			<h1 class="h2"><a href="{{ site.url }}">{{ site.title }}<br>&ndash;</a></h1>
+		</div>
+	</div>
+
+	{%
+		include 'partials/subheading.twig' with {
+			title: post.title,
+			link: post.link,
+			class: [ 'margin-xs-0' ]
+		}
+	%}
+
+{% endblock %}
+
+
+{# Page #}
+{% block page %}
+	{% for section in fields.sections %}
+
+		{# Texts #}
+		{% if section.acf_fc_layout == 'layout_texts' %}
+			<div class="row margin-xs-top-24">
+				{% for item in section.texts %}
+					<div class="col-xs-12 col-md-4 col-md-offset-1">
+						{{- item.text -}}
+						<strong class="font-family-title">&ndash;</strong>
+					</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+
+
+		{# Title #}
+		{% if section.acf_fc_layout == 'layout_title' %}
+			{%
+				include 'partials/subheading.twig' with {
+					title: section.title,
+					class: [ 'margin-xs-top-96', 'margin-xs-bottom-0' ]
+				}
+			%}
+		{% endif %}
+
+
+		{# Descriptions #}
+		{% if section.acf_fc_layout == 'layout_descriptions' %}
+			<div class="row margin-xs-top-96 font-family-title">
+				{% for item in section.descriptions %}
+					<div class="col-xs-12 col-md-3{{ loop.index == 1 ? ' col-md-offset-1' }}">
+						{{ item.description }}
+					</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+
+	{% endfor %}
+{% endblock %}
+
+
+{# Footer #}
+{% include 'footer.twig' %}

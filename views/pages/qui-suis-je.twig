@@ -1,0 +1,34 @@
+{#
+	/**
+	 * /views/pages/qui-suis-je
+	 *
+	 * @package 	WordPress
+	 * @subpackage 	formeact
+	 * @author 		Jérémy Levron <jeremylevron@19h47.fr>
+	 */
+#}
+{% extends 'index.twig' %}
+
+{% block content %}
+
+	<div class="row">
+		<div class="col-xs-12 col-md-9 col-md-offset-1">
+			<h1 class="h2"><a href="{{ site.url }}">{{- site.title -}}<br>&ndash;</a></h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12 col-md-4 col-md-offset-1">
+			<p class="h1 margin-xs-bottom-0">{{ post.title }}</p>
+		</div>
+		<div class="col-xs-12 col-md-4 col-md-offset-1 margin-xs-top-48">
+
+			{% for item in fields.page_introduction_texts %}
+				{{- item.text -}}
+				<strong class="font-family-title">&ndash;</strong>
+			{% endfor %}
+
+		</div>
+	</div>
+
+{% endblock %}

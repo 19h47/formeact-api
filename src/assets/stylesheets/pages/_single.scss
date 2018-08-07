@@ -1,0 +1,54 @@
+/**
+ * Single
+ *
+ * @uses .Single
+ */
+.Single {
+
+	/**
+	 * Date
+	 *
+	 * @uses .Single__date
+	 */
+	&__date {
+		@extend %font-family-title;
+		@include margin( top $grid-gutter-width );
+
+		font: { size: 12px; }
+	}
+
+
+	/**
+	 * Content
+	 *
+	 * @uses .Single__content
+	 */
+	&__content {
+		@include margin( top $grid-gutter-width );
+
+		ul {
+			@include margin( top $grid-gutter-width bottom $grid-gutter-width );
+			@include padding( left $grid-gutter-width );
+
+			li {
+				@include margin( top 1em bottom 1em );
+			}
+		}
+
+		img {
+			@extend %display-xs-inline-block, %vertical-align-middle;
+			max-width: 100%;
+			height: auto;
+		}
+
+		figure {
+
+			.wp-caption-text {
+				@extend %font-family-title, %text-align-xs-right;
+				@include margin( top 1em bottom 1em );
+
+				font: { size: 12px; }
+			}
+		}
+	}
+}

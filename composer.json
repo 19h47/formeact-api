@@ -1,0 +1,6 @@
+{
+    "require": {
+        "timber/timber": "^1.7",
+        "abraham/twitteroauth": "^0.7.4"
+    }
+}

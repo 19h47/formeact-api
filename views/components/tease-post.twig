@@ -1,0 +1,33 @@
+{#
+    /**
+     * /views/components/tease-post
+     *
+     * @package WordPress
+     * @author  Jérémy Levron <jeremylevron@19h47.fr>
+     */
+#}
+<article id="Tease-post-{{ post.ID }}" class="Tease-post margin-xs-y-48">
+
+	{# Title #}
+	<h2 class="Tease-post__title h4">
+		<a href="{{ post.link }}">
+			{{- post.title -}}
+		</a>
+	</h2>
+
+
+	{# Preview #}
+	{% if preview %}
+	<p class="Tease-post__preview margin-xs-bottom-24">
+		{{- post.preview.read_more( '' ) -}}
+	</p>
+	{% endif %}
+
+
+	{# Date #}
+	<p class="Tease-post__date">
+       {{- post.post_date|date( 'j F Y' ) -}}
+   </p>
+   <strong class="font-family-title">&ndash;</strong>
+
+</article>
