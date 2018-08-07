@@ -1,5 +1,7 @@
 # Forméact
 
+![Forméact](screenshot.png)
+
 ## Dependencies
 
-- Bootstrap
+- [Bootstrap](http://getbootstrap.com/)
