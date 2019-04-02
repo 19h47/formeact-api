@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Forméact ",
   "main": "index.js",
-  "author": "Jérémy Levron <jeremylevron@19h47.fr> (http://19h47.fr)",
+  "author": "Jérémy Levron <jeremylevron@19h47.fr>",
   "scripts": {
     "prod": "./bin/prod",
     "dev": "./bin/dev"
@@ -18,7 +18,6 @@
     "type": "git",
     "url": "https://github.com/19h47/formeact.git"
   },
-  "author": "Jérémy Levron <jeremylevron@19h47.fr>",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -48,6 +47,7 @@
     "breakpoint-slicer": "^2.0.0",
     "dom-classes": "^1.0.0",
     "dom-select": "^1.1.1",
+    "image-webpack-loader": "^4.3.1",
     "ress": "^1.2.2"
   }
 }

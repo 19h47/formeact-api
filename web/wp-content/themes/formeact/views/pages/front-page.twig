@@ -16,9 +16,20 @@
 
 			{# Title #}
 			<h1 class="color-white margin-xs-bottom-48">
-				<a href="{{ site.title }}">
+				{% spaceless %}
+					
+				<a class="display-xs-inline-block" href="{{ site.title }}">
 					{{- site.title -}}<br>&ndash;
 				</a>
+				<img 
+					class="Logo" 
+					src="{{theme.link}}/dist/img/png/logo.png" 
+					alt="" 
+					width="367" 
+					height="386"
+				/>	
+
+				{% endspaceless %}
 			</h1>
 
 		</div>

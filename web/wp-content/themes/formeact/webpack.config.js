@@ -10,15 +10,15 @@ module.exports = {
 	},
 	module: {
 		rules: [{
-	        enforce: "pre",
-	        test: /\.js$/,
-	        exclude: /node_modules/,
-	        loader: 'eslint-loader'
+			enforce: "pre",
+			test: /\.js$/,
+			exclude: /node_modules/,
+			loader: 'eslint-loader'
 		},{
-	        test: /\.js$/,
-	        exclude: /node_modules/,
-	        loader: 'babel-loader'
-      	},
+			test: /\.js$/,
+			exclude: /node_modules/,
+			loader: 'babel-loader'
+		},
 		{
 			test: /\.scss$/,
 			exclude: /node_modules/,
@@ -43,27 +43,57 @@ module.exports = {
 			})
 		},
 		{
-		    test: /\.svg$/,
-		    use: [{
-	    		loader: 'file-loader',
-	    		options: {
-	    			outputPath: 'img/svg'
-	    		}
-	    	},{
-    	      	loader: 'svgo-loader',
-    	      	options: {
-    	        	plugins: [{
-    	        		removeTitle: true
-    	        	},{
-    	        		convertColors: {
-    	        			shorthex: false
-    	        		}
-    	        	},{
-    	        		convertPathData: false
-    	        	}]
-    	      	}
-	    	}]
-	  	}]
+			test: /\.svg$/,
+			use: [{
+				loader: 'file-loader',
+				options: {
+					outputPath: 'img/svg'
+				}
+			},{
+				loader: 'svgo-loader',
+				options: {
+					plugins: [{
+						removeTitle: true
+					},{
+						convertColors: {
+							shorthex: false
+						}
+					},{
+						convertPathData: false
+					}]
+				}
+			}]
+		},
+		{
+			test: /\.(gif|png|jpe?g)$/i,
+			use: [{
+					loader: 'file-loader',
+					options: {
+						outputPath: 'img/',
+						name: '[ext]/[name].[ext]',
+					}
+				},
+				{
+					loader: 'image-webpack-loader',
+					options: {
+						mozjpeg: {
+						progressive: true,
+						quality: 65
+					},
+
+					optipng: {
+						enabled: false
+					},
+					pngquant: {
+						quality: '65-90',
+						speed: 4
+					},
+					gifsicle: {
+						interlaced: false
+					}
+				}
+			}]
+		}]
 	},
 	plugins: [
 		new ExtractTextPlugin({
@@ -75,13 +105,9 @@ module.exports = {
 			{
 				exclude:  ['feature.min.js'],
 			}
-		)
+		),
+
+		new ManifestPlugin()
 	],
 	devtool: production ? false : 'source-map',
 };
-
-if (production) {
-	module.exports.plugins.push(
-		new ManifestPlugin()
-	);
-}

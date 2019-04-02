@@ -14,8 +14,21 @@
 {% block content %}
 
 	<div class="row">
-		<div class="col-xs-12 col-md-8 col-md-offset-1">
-			<h1 class="h2"><a href="{{ site.url }}">{{ site.title }}<br>&ndash;</a></h1>
+		<div class="col-xs-12 col-md-8 col-md-offset-1 margin-xs-top-96">
+			{% spaceless %}
+				
+			<h1 class="h2 display-xs-inline-block margin-xs-top-0">
+				<a href="{{ site.url }}">{{ site.title }}<br>&ndash;</a>
+			</h1>
+			<img 
+				class="Logo" 
+				src="{{theme.link}}/dist/img/png/logo.png" 
+				alt="" 
+				width="367" 
+				height="386"
+			/>
+
+			{% endspaceless %}
 		</div>
 	</div>
 
