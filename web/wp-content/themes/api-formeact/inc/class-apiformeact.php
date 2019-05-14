@@ -45,6 +45,7 @@ class ApiFormeact {
 		$this->theme_version = $theme_version;
 
 		$this->load_dependencies();
+
 		add_action( 'init', array( $this, 'setup' ) );
 	}
 
@@ -63,6 +64,10 @@ class ApiFormeact {
 		// Custom taxonomies.
 		include_once get_template_directory() . '/inc/taxonomies/class-testimonycategory.php';
 		new TestimonyCategory( $this->theme_name, $this->get_theme_version() );
+
+		// Custom settings.
+		include_once get_template_directory() . '/inc/class-settings.php';
+		new Settings( $this->get_theme_name(), $this->get_theme_version() );
 
 	}
 
@@ -103,7 +108,8 @@ class ApiFormeact {
 		// Register nav menus.
 		register_nav_menus(
 			array(
-				'main' => __( 'Main' ),
+				'main'   => __( 'Main' ),
+				'footer' => __( 'Footer' )
 			)
 		);
 	}
