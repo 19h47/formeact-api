@@ -22,10 +22,10 @@ class Settings {
 	 * The version of the theme.
 	 *
 	 * @since    1.0.0
-	 * @access   private
+	 * @access   protected
 	 * @var      string    $version    The current version of this theme.
 	 */
-	private $theme_version;
+	protected $theme_version;
 
 	/**
 	 * Construct function
@@ -57,7 +57,8 @@ class Settings {
 			'general'
 		);
 
-		// Add the field with the names and function to use for our new settings, put it in our new section.
+		// Add the field with the names and function to use for our new
+		// settings, put it in our new section.
 		add_settings_field(
 			'twitter',
 			'Twitter',
@@ -121,16 +122,7 @@ class Settings {
 	 * @param arr $args Array of args.
 	 */
 	public function setting_callback_function( $args ) {
-		echo '<input name="' . esc_attr( $args['name'] ) . '" id="' . esc_attr( $args['name'] ) . '" type="text" value="' . esc_attr( get_option( $args['name'] ) ) . '" class="regular-text code" placeholder="' . esc_attr( $args['label'] ) . ' URL" /> ' . esc_attr( $args['label'] ) . ' URL';
-	}
-
-
-	/**
-	 * Callback function for our LinkedIn setting
-	 *
-	 * Creates a input text option.
-	 */
-	public function linkedin_setting_callback_function() {
-		echo '<input name="linkedin" id="linkedin" type="text" value="' . esc_attr( get_option( 'linkedin' ) ) . '" class="regular-text code" placeholder="LinkedIn URL" /> LinkedIn URL';
+		echo '<input name="' . esc_attr( $args['name'] ) . '" id="' . esc_attr( $args['name'] ) . '" type="text" value="' . esc_attr( get_option( $args['name'] ) ) . '" class="regular-text code" placeholder="' . esc_attr( $args['label'] ) . ' URL" />';
+		echo ' ' . esc_attr( $args['label'] ) . ' URL';
 	}
 }
