@@ -67,7 +67,7 @@ class Settings {
 			'socials',
 			array(
 				'name'  => 'twitter',
-				'label' => 'Twitter',
+				'label' => 'Twitter URL',
 			)
 		);
 
@@ -79,7 +79,19 @@ class Settings {
 			'socials',
 			array(
 				'name'  => 'linkedin',
-				'label' => 'LinkedIn',
+				'label' => 'LinkedIn URL',
+			)
+		);
+
+		add_settings_field(
+			'email_public',
+			'Public email',
+			array( $this, 'setting_callback_function' ),
+			'general',
+			'socials',
+			array(
+				'name'  => 'email_public',
+				'label' => 'Public email address',
 			)
 		);
 	}
@@ -100,6 +112,7 @@ class Settings {
 
 		register_setting( 'general', 'twitter', $args );
 		register_setting( 'general', 'linkedin', $args );
+		register_setting( 'general', 'email_public', $args );
 	}
 
 
@@ -122,7 +135,7 @@ class Settings {
 	 * @param arr $args Array of args.
 	 */
 	public function setting_callback_function( $args ) {
-		echo '<input name="' . esc_attr( $args['name'] ) . '" id="' . esc_attr( $args['name'] ) . '" type="text" value="' . esc_attr( get_option( $args['name'] ) ) . '" class="regular-text code" placeholder="' . esc_attr( $args['label'] ) . ' URL" />';
-		echo ' ' . esc_attr( $args['label'] ) . ' URL';
+		echo '<input name="' . esc_attr( $args['name'] ) . '" id="' . esc_attr( $args['name'] ) . '" type="text" value="' . esc_attr( get_option( $args['name'] ) ) . '" class="regular-text code" placeholder="' . esc_attr( $args['label'] ) . '" />';
+		echo ' ' . esc_attr( $args['label'] );
 	}
 }

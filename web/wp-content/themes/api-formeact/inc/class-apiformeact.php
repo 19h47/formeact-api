@@ -69,6 +69,9 @@ class ApiFormeact {
 		include_once get_template_directory() . '/inc/class-settings.php';
 		new Settings( $this->get_theme_name(), $this->get_theme_version() );
 
+		// Blocks.
+		include_once get_template_directory() . '/inc/blocks/hero/index.php';
+
 	}
 
 
