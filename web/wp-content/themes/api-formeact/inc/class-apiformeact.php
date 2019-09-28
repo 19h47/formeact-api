@@ -57,6 +57,8 @@ class ApiFormeact {
 	 * @name   load_dependencies
 	 */
 	private function load_dependencies() {
+		include_once get_template_directory() . '/inc/acf.php';
+
 		// Custom post types.
 		include_once get_template_directory() . '/inc/post-types/class-testimony.php';
 		new Testimony( $this->theme_name, $this->get_theme_version() );
@@ -69,9 +71,8 @@ class ApiFormeact {
 		include_once get_template_directory() . '/inc/class-settings.php';
 		new Settings( $this->get_theme_name(), $this->get_theme_version() );
 
-		// Blocks.
-		include_once get_template_directory() . '/inc/blocks/hero/index.php';
-
+		// WPGraphQL
+		include_once get_template_directory() . '/inc/wpgraphql.php';
 	}
 
 
@@ -111,8 +112,8 @@ class ApiFormeact {
 		// Register nav menus.
 		register_nav_menus(
 			array(
-				'main'   => __( 'Main' ),
-				'footer' => __( 'Footer' )
+				'primary' => __( 'Primary' ),
+				'footer'  => __( 'Footer' ),
 			)
 		);
 	}
@@ -143,4 +144,4 @@ class ApiFormeact {
 
 $wp_theme = wp_get_theme();
 
-new ApiFormeact( 'apiformeact', $wp_theme->Version );
+new ApiFormeact( 'apiformeact', $wp_theme->Version ); // phpcs:ignore

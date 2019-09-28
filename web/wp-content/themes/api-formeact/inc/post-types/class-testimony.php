@@ -106,6 +106,9 @@ class Testimony {
 			'publicly_queryable'  => true,
 			'rewrite'             => $rewrite,
 			'capability_type'     => 'post',
+			'show_in_graphql'     => true,
+			'graphql_single_name' => 'Testimony',
+			'graphql_plural_name' => 'testimonies',
 		);
 		register_post_type( 'testimony', $args );
 	}
@@ -141,7 +144,7 @@ class Testimony {
 		}
 
 		$text = sprintf(
-			_n( '%1$s %4$s%2$s', '%1$s %4$s%3$s', $num_posts->{$post_status} ),
+			_n( '%1$s %4$s%2$s', '%1$s %4$s%3$s', $num_posts->{$post_status} ), // phpcs:ignore
 			number_format_i18n( $num_posts->{$post_status} ),
 			strtolower( $object->labels->singular_name ),
 			strtolower( $object->labels->name ),
