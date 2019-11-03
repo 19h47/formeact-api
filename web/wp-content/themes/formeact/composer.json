@@ -1,0 +1,32 @@
+{
+	"name": "19h47/api-formeact",
+    "description": "Forméact WordPress theme",
+    "type": "wordpress-theme",
+    "authors": [
+        {
+            "name": "Jérémy Levron",
+            "email": "jeremylevron@19h47.fr"
+        }
+    ],
+	"autoload": {
+        "psr-4": {
+            "Formeact\\": "inc/"
+        }
+    },
+	"require-dev": {
+		"19h47/set-glance-items": "dev-master"
+	},
+	"repositories": [
+		{
+			"type": "git",
+			"url": "https://github.com/19h47/set-glance-items.git"
+		}
+	],
+	"extra": {
+		"installer-paths": {
+			"../../plugins/{$name}/": [
+				"type:wordpress-plugin"
+			]
+		}
+	}
+}

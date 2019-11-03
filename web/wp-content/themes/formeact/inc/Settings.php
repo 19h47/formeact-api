@@ -1,9 +1,11 @@
-<?php
+<?php // phpcs:ignore
 /**
  * Settings class
  *
- * @package ApiFormeact
+ * @package Formeact
  */
+
+namespace Formeact;
 
 /**
  * Class Settings
@@ -30,11 +32,11 @@ class Settings {
 	/**
 	 * Construct function
 	 *
-	 * @param str $theme_name    The theme name.
-	 * @param str $theme_version The the version.
+	 * @param string $theme_name    The theme name.
+	 * @param string $theme_version The the version.
 	 * @access public
 	 */
-	public function __construct( $theme_name, $theme_version ) {
+	public function __construct( string $theme_name, string $theme_version ) {
 		$this->theme_name    = $theme_name;
 		$this->theme_version = $theme_version;
 
@@ -45,10 +47,11 @@ class Settings {
 	/**
 	 * Settings api init
 	 *
+	 * @return void
 	 * @access public
 	 * @see https://codex.wordpress.org/Function_Reference/add_settings_field
 	 */
-	public function settings_api_init() {
+	public function settings_api_init() : void {
 		// Add the section to reading settings so we can add our fields to it.
 		add_settings_section(
 			'socials',
@@ -99,9 +102,10 @@ class Settings {
 	/**
 	 * Register our setting so that $_POST handling is done for us and our
 	 * callback function just has to echo the <input>.
+	 *
+	 * @return void
 	 */
-	public function register_settings() {
-
+	public function register_settings() : void {
 		$args = array(
 			'type'              => 'string',
 			'sanitize_callback' => 'sanitize_text_field',
@@ -121,8 +125,10 @@ class Settings {
 	 *
 	 * This function is needed if we added a new section. This function
 	 * will be run at the start of our section
+	 *
+	 * @return void
 	 */
-	public function socials_callback_function() {
+	public function socials_callback_function() : void {
 		echo '<p>Socials urls</p>';
 	}
 
@@ -132,9 +138,10 @@ class Settings {
 	 *
 	 * Creates a input text option.
 	 *
-	 * @param arr $args Array of args.
+	 * @param array $args Array of args.
+	 * @return void
 	 */
-	public function setting_callback_function( $args ) {
+	public function setting_callback_function( array $args ) : void {
 		echo '<input name="' . esc_attr( $args['name'] ) . '" id="' . esc_attr( $args['name'] ) . '" type="text" value="' . esc_attr( get_option( $args['name'] ) ) . '" class="regular-text code" placeholder="' . esc_attr( $args['label'] ) . '" />';
 		echo ' ' . esc_attr( $args['label'] );
 	}

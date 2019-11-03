@@ -1,9 +1,11 @@
-<?php
+<?php // phpcs:ignore
 /**
  * Testimony categories tag class
  *
- * @package ApiFormeact
+ * @package Formeact
  */
+
+namespace Formeact\Taxonomies;
 
 /**
  * Class Testimony category

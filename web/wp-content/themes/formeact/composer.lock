@@ -1,0 +1,38 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "3f31d23ef31a6a0081c1f101bbf1c664",
+    "packages": [],
+    "packages-dev": [
+        {
+            "name": "19h47/set-glance-items",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/19h47/set-glance-items.git",
+                "reference": "9ed882b5476052f74b2cb0840edf32cb45e2de3d"
+            },
+            "type": "wordpress-plugin",
+            "authors": [
+                {
+                    "name": "Jérémy Levron",
+                    "email": "jeremylevron@19h47.fr"
+                }
+            ],
+            "description": "Set glance items in WordPress's admin dashboard",
+            "time": "2019-10-03T18:32:24+00:00"
+        }
+    ],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "19h47/set-glance-items": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

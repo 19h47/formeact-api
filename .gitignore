@@ -56,11 +56,11 @@ web/readme.html
 
 # Theme and plugins #
 #####################
-!web/wp-content/themes/api-formeact/
-web/wp-content/themes/api-formeact/vendor/
-web/wp-content/themes/api-formeact/wpcs/
-web/wp-content/themes/api-formeact/dist
-web/wp-content/themes/api-formeact/screenshots
+!web/wp-content/themes/formeact/
+web/wp-content/themes/formeact/vendor/
+web/wp-content/themes/formeact/wpcs/
+web/wp-content/themes/formeact/dist
+web/wp-content/themes/formeact/screenshots
 
 # Front-end #
 #############

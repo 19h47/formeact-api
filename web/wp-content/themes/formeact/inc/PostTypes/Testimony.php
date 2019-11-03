@@ -1,9 +1,11 @@
-<?php
+<?php // phpcs:ignore
 /**
  * Testimony class
  *
- * @package ApiFormeact
+ * @package Formeact
  */
+
+namespace Formeact\PostTypes;
 
 /**
  * Class Testimony
@@ -31,26 +33,24 @@ class Testimony {
 	/**
 	 * Construct function
 	 *
-	 * @param str $theme_name    The theme name.
-	 * @param str $theme_version The the version.
+	 * @param string $theme_name    The theme name.
+	 * @param string $theme_version The the version.
 	 * @access public
 	 */
-	public function __construct( $theme_name, $theme_version ) {
+	public function __construct( string $theme_name, string $theme_version ) {
 		$this->theme_name    = $theme_name;
 		$this->theme_version = $theme_version;
 
-		$this->register_post_type();
 		add_action( 'init', array( $this, 'register_post_type' ) );
-		add_action( 'admin_head', array( $this, 'css' ) );
-
-		add_filter( 'dashboard_glance_items', array( $this, 'at_a_glance' ) );
 	}
 
 
 	/**
 	 * Register Custom Post Type
+	 *
+	 * @return void
 	 */
-	public function register_post_type() {
+	public function register_post_type() : void {
 		$labels = array(
 			'name'                  => _x( 'Témoignages', 'Témoignage pluriel', 'api-formeact' ),
 			'singular_name'         => _x( 'Témoignage', 'Témoignage singulier', 'api-formeact' ),
@@ -111,53 +111,5 @@ class Testimony {
 			'graphql_plural_name' => 'testimonies',
 		);
 		register_post_type( 'testimony', $args );
-	}
-
-
-	/**
-	 * CSS
-	 */
-	public function css() {
-
-		?>
-		<style>
-			#dashboard_right_now .testimony-count:before { content: "\f122"; }
-		</style>
-		<?php
-	}
-
-
-	/**
-	 * "At a glance" items (dashboard widget): add the testimony.
-	 *
-	 * @param arr $items Array of items.
-	 */
-	public function at_a_glance( $items ) {
-		$post_type   = 'testimony';
-		$post_status = 'publish';
-		$object      = get_post_type_object( $post_type );
-
-		$num_posts = wp_count_posts( $post_type );
-		if ( ! $num_posts || ! isset( $num_posts->{$post_status} ) || 0 === (int) $num_posts->{$post_status} ) {
-
-			return $items;
-		}
-
-		$text = sprintf(
-			_n( '%1$s %4$s%2$s', '%1$s %4$s%3$s', $num_posts->{$post_status} ), // phpcs:ignore
-			number_format_i18n( $num_posts->{$post_status} ),
-			strtolower( $object->labels->singular_name ),
-			strtolower( $object->labels->name ),
-			'pending' === $post_status ? 'Pending ' : ''
-		);
-
-		if ( current_user_can( $object->cap->edit_posts ) ) {
-			$items[] = sprintf( '<a class="%1$s-count" href="edit.php?post_status=%2$s&post_type=%1$s">%3$s</a>', $post_type, $post_status, $text );
-
-		} else {
-			$items[] = sprintf( '<span class="%1$s-count">%s</span>', $text );
-		}
-
-		return $items;
 	}
 }
