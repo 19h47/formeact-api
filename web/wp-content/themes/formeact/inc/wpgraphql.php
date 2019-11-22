@@ -2,7 +2,7 @@
 /**
  * WPGraphQL
  *
- * @package ApiForméact
+ * @package Formeact
  */
 
 add_action( 'graphql_register_types', 'graphql_register_tweet_url' );

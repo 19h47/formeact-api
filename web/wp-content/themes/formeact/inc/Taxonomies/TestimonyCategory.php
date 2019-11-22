@@ -2,7 +2,7 @@
 /**
  * Testimony categories tag class
  *
- * @package Formeact
+ * @package Formeact\Taxonomies
  */
 
 namespace Formeact\Taxonomies;
@@ -15,9 +15,9 @@ class TestimonyCategory {
 	/**
 	 * The unique identifier of this theme.
 	 *
-	 * @since    1.0.0
-	 * @access   protected
-	 * @var      string    $plugin_name    The string used to uniquely identify this theme.
+	 * @since 1.0.0
+	 * @access protected
+	 * @var string $plugin_name The string used to uniquely identify this theme.
 	 */
 	protected $theme_name;
 
@@ -25,9 +25,9 @@ class TestimonyCategory {
 	/**
 	 * The version of the theme.
 	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $version    The current version of this theme.
+	 * @since 1.0.0
+	 * @access private
+	 * @var string $version The current version of this theme.
 	 */
 	private $theme_version;
 
@@ -35,11 +35,11 @@ class TestimonyCategory {
 	/**
 	 * Construct function
 	 *
-	 * @param str $theme_name    The theme name.
-	 * @param str $theme_version The theme version.
+	 * @param string $theme_name    The theme name.
+	 * @param string $theme_version The theme version.
 	 * @access public
 	 */
-	public function __construct( $theme_name, $theme_version ) {
+	public function __construct( string $theme_name, string $theme_version ) {
 		$this->theme_name    = $theme_name;
 		$this->theme_version = $theme_version;
 
@@ -49,8 +49,10 @@ class TestimonyCategory {
 
 	/**
 	 * Register Custom Taxonomy
+	 *
+	 * @return void
 	 */
-	public function register_taxonomy() {
+	public function register_taxonomy() : void {
 		$labels = array(
 			'name'                       => _x( 'Catégories de témoignage', 'Taxonomy General Name', 'api-formeact' ),
 			'singular_name'              => _x( 'Catégorie de témoignage', 'Taxonomy Singular Name', 'api-formeact' ),

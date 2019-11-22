@@ -45,8 +45,8 @@ class App {
 	 * Initialize the class and set its properties.
 	 *
 	 * @access public
-	 * @param  string $theme_name    The theme name.
-	 * @param  string $theme_version The theme version.
+	 * @param string $theme_name    The theme name.
+	 * @param string $theme_version The theme version.
 	 */
 	public function __construct( string $theme_name, string $theme_version ) {
 		$this->theme_name    = $theme_name;

@@ -11,6 +11,7 @@ namespace Formeact;
  * Class Settings
  */
 class Settings {
+
 	/**
 	 * The unique identifier of this theme.
 	 *

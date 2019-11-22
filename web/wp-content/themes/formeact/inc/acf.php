@@ -72,6 +72,10 @@ function acf_load_illustrations_field_choices( array $field ) {
 			'value' => 'notebook-man',
 			'label' => 'Notebook man',
 		),
+		array(
+			'value' => 'datadock',
+			'label' => 'Datadock',
+		),
 	);
 
 	foreach ( $illustrations as $illustration ) {

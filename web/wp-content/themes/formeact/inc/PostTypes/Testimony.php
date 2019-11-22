@@ -2,7 +2,7 @@
 /**
  * Testimony class
  *
- * @package Formeact
+ * @package Formeact\PostTypes
  */
 
 namespace Formeact\PostTypes;
@@ -16,7 +16,7 @@ class Testimony {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      string    $plugin_name    The string used to uniquely identify this theme.
+	 * @var string $plugin_name    The string used to uniquely identify this theme.
 	 */
 	protected $theme_name;
 
@@ -25,7 +25,7 @@ class Testimony {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $version    The current version of this theme.
+	 * @var string $version The current version of this theme.
 	 */
 	private $theme_version;
 
